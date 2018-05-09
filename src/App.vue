@@ -1,23 +1,24 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
     <router-view/>
   </div>
 </template>
 
 <script>
+import "../src/style/init.css";
 export default {
-  name: 'App'
-}
+  name: "App",
+  methods: {
+    scroll(e) {
+      this.$store.commit("Scroll_M", { result: window.scrollY });
+    }
+  },
+  mounted() {
+    //window.addEventListener("scroll", this.scroll);
+  }
+};
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
