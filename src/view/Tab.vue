@@ -27,7 +27,7 @@
 <script>
 export default {
   created() {
-    this.$store.commit("Window_M");
+    
   },
   data() {
     return {

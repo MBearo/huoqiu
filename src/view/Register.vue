@@ -12,7 +12,7 @@
     <div class="neirong">
       <h3>账号注册</h3>
       <div class="input">
-        <input v-model="name" type="text" placeholder="用户名">
+        <input v-model="account" type="text" placeholder="用户名">
       </div>
       <div class="input">
         <input v-model="password" type="password" placeholder="密码">
@@ -20,12 +20,9 @@
       <div class="input">
         <input v-model="names" type="text" placeholder="昵称">
       </div>
-      <div class="input">
-        <input v-model="phone" type="text" placeholder="手机号">
-      </div>
     </div>
     <div class="" style="padding:0 20px;box-sizing:border-box">
-      <div class="go bg-primary color-white" @click="denglu"> 开始使用</div>
+      <div class="go bg-primary color-white" @click="denglu"> 下一步</div>
     </div>
     <router-link class="zhuce text-center" tag="div" to="/register">
       已有账号？现在登录
@@ -36,40 +33,42 @@
 <script>
 import urls from "../vuex/urls";
 import qs from "qs";
+import axios from "axios";
 export default {
   data() {
     return {
-      name: "",
+      account: "",
       password: "",
       names: "",
       phone: ""
     };
   },
+    created() {
+
+  },
   methods: {
     denglu() {
-      this.$store.state.user.name = this.name;
-      this.$store.state.user.password = this.password;
-      this.$axios
-        .post(
-          urls.urls + "Graduation/SignUp",
-          qs.stringify({
-            username: this.name,
+  //、、 this.$store.state.user.name = this.name;
+     // this.$store.state.user.password = this.password;
+      axios
+        .get(urls.url2 + "s_register.php", {
+          params: {
+            account: this.account,
             password: this.password,
-            name: this.names,
-            gender: "male",
-            phone: this.phone,
-            email: ""
-          })
-        )
+            name:this.names
+          }
+        })
         .then(result => {
           // commit("NewsList_M", {
           //   result
           // });
-          if (result.data.errorcode == 0) {
-            this.$toast("登录成功");
-            // this.$store.commit("User_M", { result: 1111 });
-            this.$router.push("index");
+          if (result.data.code == 0) {
+            this.$toast("注册成功");
+            this.$store.commit("User_M", { result: result.data.data });
+            this.$router.push("ChangeImg");
+
           } else {
+            this.$toast("账号已存在！");
           }
           console.log(result);
         })

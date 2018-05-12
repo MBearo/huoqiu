@@ -8,6 +8,9 @@ import Me from '@/view/Me'
 import Login from '@/view/Login'
 import Register from '@/view/Register'
 import Details from '@/view/Details'
+import UserDetail from '@/view/UserDetail'
+import ChangeImg from '@/view/ChangeImg'
+import MaiShouList from '@/view/MaiShouList'
 
 Vue.use(Router)
 
@@ -15,6 +18,7 @@ export default new Router({
   routes: [
     {
       path: '/',
+      redirect: '/login',
       name: 'HelloWorld',
       component: HelloWorld
     },
@@ -47,9 +51,26 @@ export default new Router({
       component: Register
     },
     {
-      path: '/Details',
+      path: '/Details/:id/:index',
       name: 'Details',
       component: Details
+    }
+    ,
+    {
+      path: '/UserDetail',
+      name: 'UserDetail',
+      component: UserDetail
+    },
+    {
+      path: '/ChangeImg',
+      name: 'ChangeImg',
+      component: ChangeImg
+    }
+    ,
+    {
+      path: '/MaiShouList/:type',
+      name: 'MaiShouList',
+      component: MaiShouList
     }
   ]
 })

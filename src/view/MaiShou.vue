@@ -10,8 +10,7 @@
           WHAT'S HOT
         </div>
         <div class="flex">
-          <div class="quanquan"></div>
-          <div class="quanquan"></div>
+          <div class="quanquan bg-cover" :style="{backgroundImage: `url(${item.img})`}" v-for="(item,index) in $store.state.tuijian" :key="'tuijian'+index"></div>
         </div>
       </div>
       <div class="maishoublock right" :style="size">
@@ -20,6 +19,9 @@
         </div>
         <div class="subtitle">
           WHAT'S NEW
+        </div>
+        <div class="flex">
+          <div class="quanquan bg-cover" :style="{backgroundImage: `url(${item.img})`}" v-for="(item,index) in $store.state.zuixin" :key="'tuijian'+index"></div>
         </div>
       </div>
     </div>

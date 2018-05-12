@@ -2,15 +2,18 @@
     <div class="container bg-white">
         <div class="my_card flex">
             <div class="flex-1">
-                <div class="name">用户姓名</div>
+                <div class="name">{{$store.state.token.name}}</div>
                 <div class="desc">买到 10 个好物</div>
                 <div class="flex" style="margin-top:5px;">
-                    <div class="tag">
+                    <div class="tag" v-show="$store.state.token.identity==1">
+                        好物达人
+                    </div>
+                    <div class="tag" v-show="$store.state.token.identity!=1">
                         新晋公民
                     </div>
                 </div>
             </div>
-            <div class="flex-0 img ">
+            <div class="flex-0 img bg-cover" :style="{backgroundImage: `url(${$store.state.token.img})`}">
 
             </div>
         </div>

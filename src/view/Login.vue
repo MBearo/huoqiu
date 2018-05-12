@@ -25,6 +25,9 @@ import urls from "../vuex/urls";
 import qs from "qs";
 import Back from "../components/Back";
 export default {
+  created() {
+
+  },
   data() {
     return {
       account: "",
@@ -39,7 +42,7 @@ export default {
       // this.$store.state.user.name = this.name;
       // this.$store.state.user.password = this.password;
       axios
-        .get(urls.urls2 + "s_login", {
+        .get(urls.url2 + "s_login.php", {
           params: {
             account: this.account,
             password: this.password
@@ -49,10 +52,10 @@ export default {
           // commit("NewsList_M", {
           //   result
           // });
-          if (result.data.errorcode == 0) {
+          if (result.data.code == 0) {
             this.$toast("登录成功");
             this.$store.commit("User_M", { result: result.data.data });
-            this.$router.push("index");
+            this.$router.push("tab/haowu");
           } else {
             this.$toast("账号或密码错误！");
           }
