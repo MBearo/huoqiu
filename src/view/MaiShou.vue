@@ -2,7 +2,7 @@
   <div>
     <TopBar :name="'买手'"></TopBar>
     <div class="xiaokuai flex flex-justify-between">
-      <div class="maishoublock left" :style="size">
+      <div class="maishoublock left" :style="size" @click="$router.push('/maishoulist/tuijian')">
         <div class="title">
           推荐买手
         </div>
@@ -13,7 +13,7 @@
           <div class="quanquan bg-cover" :style="{backgroundImage: `url(${item.img})`}" v-for="(item,index) in $store.state.tuijian" :key="'tuijian'+index"></div>
         </div>
       </div>
-      <div class="maishoublock right" :style="size">
+      <div class="maishoublock right" :style="size" @click="$router.push('/maishoulist/zuixin')">
         <div class="title">
           最新买手
         </div>
@@ -46,6 +46,11 @@ export default {
         height: (this.$store.state.windowW - 60) / 2 * 9 / 16 + "px",
         width: (this.$store.state.windowW - 60) / 2 + "px"
       };
+    }
+  },
+  methods:{
+    go1(){
+      
     }
   }
 };

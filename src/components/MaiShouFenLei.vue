@@ -1,6 +1,6 @@
 <template>
   <div class="container flex">
-    <div class="item flex" :style="size" v-for="(item,index) in $store.state.maishoufenlei" :key="index">
+    <div class="item flex" :style="size" v-for="(item,index) in $store.state.maishoufenlei" :key="index" @click="$router.push(`/maishoulist/${item.id}`)">
       <div class="flex-0" style="margin-right:10px;">
         <i class="icon iconfont " :class="item.icon"></i>
       </div>

@@ -11,6 +11,10 @@ import Details from '@/view/Details'
 import UserDetail from '@/view/UserDetail'
 import ChangeImg from '@/view/ChangeImg'
 import MaiShouList from '@/view/MaiShouList'
+import MeDetail from '@/view/MeDetail'
+import Buy from '@/view/Buy'
+import MyOrder from '@/view/MyOrder'
+import MyLike from '@/view/MyLike'
 
 Vue.use(Router)
 
@@ -57,9 +61,14 @@ export default new Router({
     }
     ,
     {
-      path: '/UserDetail',
+      path: '/UserDetail/:id',
       name: 'UserDetail',
       component: UserDetail
+    },
+    {
+      path: '/MeDetail/:id',
+      name: 'MeDetail',
+      component: MeDetail
     },
     {
       path: '/ChangeImg',
@@ -71,6 +80,22 @@ export default new Router({
       path: '/MaiShouList/:type',
       name: 'MaiShouList',
       component: MaiShouList
+    },
+    {
+      path: '/Buy/:id',
+      name: 'Buy',
+      component: Buy
+    },
+    {
+      path: '/MyOrder',
+      name: 'MyOrder',
+      component: MyOrder
+    }
+    ,
+    {
+      path: '/MyLike',
+      name: 'MyLike',
+      component: MyLike
     }
   ]
 })

@@ -30,6 +30,7 @@ export default {
 .topbar {
   height: 46px;
   line-height: 46px;
+  border-bottom: 1px solid #f2f2f2;
 }
 i {
   font-size: 20px;

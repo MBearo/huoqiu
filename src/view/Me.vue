@@ -1,9 +1,9 @@
 <template>
     <div class="container bg-white">
-        <div class="my_card flex">
+        <div class="my_card flex" @click="$router.push(`/MeDetail/${$store.state.token.id}`)">
             <div class="flex-1">
                 <div class="name">{{$store.state.token.name}}</div>
-                <div class="desc">买到 10 个好物</div>
+                <div class="desc">买到  {{$store.state.myOrder.length}} 个好物 </div>
                 <div class="flex" style="margin-top:5px;">
                     <div class="tag" v-show="$store.state.token.identity==1">
                         好物达人
@@ -18,11 +18,19 @@
             </div>
         </div>
         <div class="list">
-            <div class="cell flex">
-                <i class="iconfont icon-shouye7 flex-0"></i>
-                <div class="flex-1">我的订单</div>
+            <div class="cell flex" @click="$router.push(`/MeDetail/${$store.state.token.id}`)">
+                <i class="iconfont icon-icon12 flex-0"></i>
+                <div class="flex-1">关于我</div>
             </div>
-            <div class="cell flex">
+            <!-- <div class="cell flex">
+                <i class="iconfont icon-shouye9 flex-0"></i>
+                <div class="flex-1">我的留言</div>
+            </div> -->
+            <div class="cell flex" @click="$router.push(`/MyLike`)">
+                <i class="iconfont icon-shouye8 flex-0"></i>
+                <div class="flex-1">我的喜欢</div>
+            </div>
+            <div class="cell flex"  @click="$router.push(`/MyOrder`)">
                 <i class="iconfont icon-shouye7 flex-0"></i>
                 <div class="flex-1">我的订单</div>
             </div>

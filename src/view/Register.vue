@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="topbar flex bg-white">
+    <!-- <div class="topbar flex bg-white">
       <div class="flex-0 topba_button">
         <i class="iconfont icon-back"></i>
       </div>
@@ -8,7 +8,8 @@
 
       </div>
       <div class="flex-0 topba_button"></div>
-    </div>
+    </div> -->
+    <div style="height:56px"></div>
     <div class="neirong">
       <h3>账号注册</h3>
       <div class="input">

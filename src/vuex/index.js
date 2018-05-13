@@ -20,7 +20,9 @@ export default new Vuex.Store({
     }],
     maishoufenlei: [],
     zuixin: [],
-    tuijian: []
+    tuijian: [],
+    myOrder: [],
+    myLike: []
   },
   actions: {
     NewsList_A({
@@ -57,12 +59,12 @@ export default new Vuex.Store({
       state
     }) {
       axios
-        .get(urls.url2 + "s_select.php",{
-          params:{
-            table:'shop_user',
-            name:'identity',
-            value:'1',
-            order:'time'
+        .get(urls.url2 + "s_select.php", {
+          params: {
+            table: 'shop_user',
+            name: 'identity',
+            value: '1',
+            order: 'time'
           }
         })
         .then(result => {
@@ -78,17 +80,55 @@ export default new Vuex.Store({
       state
     }) {
       axios
-        .get(urls.url2 + "s_select.php",{
-          params:{
-            table:'shop_user',
-            name:'identity',
-            value:'1',
-            order:'money'
+        .get(urls.url2 + "s_select.php", {
+          params: {
+            table: 'shop_user',
+            name: 'identity',
+            value: '1',
+            order: 'money'
           }
         })
         .then(result => {
           console.log(result);
           commit('TuiJian_M', { result: result.data.data.list })
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
+    MyOrder_A({
+      commit,
+      state
+    }) {
+      console.log(state.token.id)
+      axios
+        .get(urls.url2 + "s_myOrder.php", {
+          params: {
+            id: state.token.id,
+          }
+        })
+        .then(result => {
+          console.log(result);
+          commit('MyOrder_M', { result: result.data.data.list })
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
+    MyLike_A({
+      commit,
+      state
+    }) {
+      console.log(state.token.id)
+      axios
+        .get(urls.url2 + "s_myLike.php", {
+          params: {
+            id: state.token.id,
+          }
+        })
+        .then(result => {
+          console.log(result);
+          commit('MyLike_M', { result: result.data.data.list })
         })
         .catch(error => {
           console.log(error);
@@ -143,6 +183,22 @@ export default new Vuex.Store({
       for (let i = 0; i < 5; i++) {
         state.tuijian.push(result[i])
       }
+    },
+    MyOrder_M(state, {
+      result
+    }) {
+      state.myOrder.splice(0, state.myOrder.length)
+      result.forEach(element => {
+        state.myOrder.push(element)
+      });
+    },
+    MyLike_M(state, {
+      result
+    }) {
+      state.myLike.splice(0, state.myLike.length)
+      result.forEach(element => {
+        state.myLike.push(element)
+      });
     },
   },
   getters: {},

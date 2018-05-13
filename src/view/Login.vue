@@ -1,6 +1,7 @@
 <template>
   <div class="container">
-    <Back></Back>
+    <!-- <Back></Back> -->
+       <div style="height:56px"></div>
     <div class="neirong">
       <h3>账号登录</h3>
       <div class="input">

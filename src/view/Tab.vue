@@ -27,7 +27,8 @@
 <script>
 export default {
   created() {
-    
+    this.$store.dispatch("MyOrder_A");
+    this.$store.dispatch("MyLike_A");
   },
   data() {
     return {

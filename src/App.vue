@@ -14,7 +14,6 @@ export default {
     this.$store.dispatch("TuiJian_A");
     this.$store.dispatch("MaiShouFenLei_A");
     this.$store.commit("Window_M");
-    TuiJian_A
   },
   methods: {
     scroll(e) {

@@ -1,5 +1,5 @@
 <template>
-    <div class="container" @click="go(data.id)">
+    <div class="container" @click="go(data.aid)">
         <div class="user flex">
             <div class="img flex-0 bg-cover" :style="{backgroundImage: `url(${data.img})`}"></div>
             <div class="name flex-1">{{data.name}}</div>
@@ -12,10 +12,10 @@
         </div>
         <div class="desc flex">
             <div class="flex-0">
-                <i class="iconfont icon-shouye8"></i>
-                <span>{{data.like}}</span>
-                <i class="iconfont icon-shouye9"></i>
-                <span>999</span>
+                <!-- <i class="iconfont icon-shouye8"></i>
+                <span>{{data.like}}</span> -->
+                <!-- <i class="iconfont icon-shouye9"></i>
+                <span>999</span> -->
             </div>
             <div class="flex-1 time">
                 {{data.time}}
@@ -30,6 +30,7 @@ export default {
     data: {
       type: Object,
       default: {
+        aid:0,
         img: "",
         name: "",
         banner: "",
